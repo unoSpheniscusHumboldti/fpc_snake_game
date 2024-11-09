@@ -1,6 +1,6 @@
 program snake_linked_list;
 
-uses crt, process;
+uses crt;
 
 label
 	loop_exit, loop_exit_2;
@@ -148,17 +148,6 @@ procedure start_new_game(var t: pointer_typ; var s: deque);
 		new_snake_element(s, ScreenWidth div 2, ScreenHeight div 2);
 	end;
 
-procedure reset_term;
-	var
-		reset_process: TProcess;
-	begin
-		reset_process := TProcess.Create(nil);
-		reset_process.Executable := 'reset';
-		reset_process.Options := reset_process.Options + [poWaitOnExit];
-		reset_process.Execute;
-		reset_process.Free
-	end;
-
 var
 	target, temp: pointer_typ;
 	snake: deque;
@@ -248,5 +237,5 @@ begin
 
 	loop_exit_2:
 	delay(1000);
-	reset_term;
+	write(#27'[0m');
 end.
