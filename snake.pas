@@ -6,7 +6,7 @@ label
 	loop_exit, loop_exit_2;
 
 const
-	star = '*';
+	star = '#';
 
 type
 //double linked list for snake;
